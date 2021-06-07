@@ -1,0 +1,8 @@
+fragment ScheduleItem on ScheduleItem {
+  ... on Todo {
+    ...TodoItem
+  }
+  ... on Appointment {
+    ...AppointmentItem
+  }
+}

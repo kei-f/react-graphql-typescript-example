@@ -1,0 +1,9 @@
+fragment AppointmentItem on Appointment {
+  id
+  title
+  datetime
+  place
+  tags {
+    ...Tag
+  }
+}

@@ -1,0 +1,8 @@
+fragment TodoItem on Todo {
+  id
+  title
+  description
+  tags {
+    ...Tag
+  }
+}
