@@ -11,6 +11,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "apollo-server": "^2.25.0",
     "graphql": "^15.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,18 +21,19 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.5",
-    "@graphql-codegen/typescript-operations": "1.18.0",
-    "@graphql-codegen/typescript-react-apollo": "2.2.5",
-    "@graphql-codegen/typescript": "1.22.1",
     "@graphql-codegen/fragment-matcher": "2.0.1",
-    "@graphql-codegen/introspection": "1.18.2"
+    "@graphql-codegen/introspection": "1.18.2",
+    "@graphql-codegen/typescript": "1.22.1",
+    "@graphql-codegen/typescript-operations": "1.18.0",
+    "@graphql-codegen/typescript-react-apollo": "2.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "graphql": "graphql-codegen --config codegen.yml"
+    "graphql": "graphql-codegen --config codegen.yml",
+    "server": "node ./server"
   },
   "eslintConfig": {
     "extends": [
