@@ -1,5 +1,6 @@
 import TodoItem from "components/TodoItem";
 import AppointmentItem from "components/AppointmentItem";
+import Tag from "components/Tag";
 import { ScheduleItemFragment } from "generated/graphql";
 
 type Props = {
@@ -19,6 +20,11 @@ const renderChild = (item: ScheduleItemFragment) => {
 const ScheduleItem = ({ item }: Props) => {
   return (
     <div style={{ margin: 20, padding: 20, border: "1px solid #ddd" }}>
+      <div style={{ textAlign: "right" }}>
+        {item.tags.map((tag) => (
+          <Tag key={tag.id} tag={tag} />
+        ))}
+      </div>
       {renderChild(item)}
     </div>
   );

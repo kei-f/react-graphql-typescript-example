@@ -73,19 +73,23 @@ export type AppQuery = (
 export type AppointmentItemFragment = (
   { __typename?: 'Appointment' }
   & Pick<Appointment, 'id' | 'title' | 'datetime' | 'place'>
-  & { tags: Array<(
-    { __typename?: 'Tag' }
-    & TagFragment
-  )> }
 );
 
 type ScheduleItem_Todo_Fragment = (
   { __typename?: 'Todo' }
+  & { tags: Array<(
+    { __typename?: 'Tag' }
+    & TagFragment
+  )> }
   & TodoItemFragment
 );
 
 type ScheduleItem_Appointment_Fragment = (
   { __typename?: 'Appointment' }
+  & { tags: Array<(
+    { __typename?: 'Tag' }
+    & TagFragment
+  )> }
   & AppointmentItemFragment
 );
 
@@ -99,12 +103,16 @@ export type TagFragment = (
 export type TodoItemFragment = (
   { __typename?: 'Todo' }
   & Pick<Todo, 'id' | 'title' | 'description' | 'deadline'>
-  & { tags: Array<(
-    { __typename?: 'Tag' }
-    & TagFragment
-  )> }
 );
 
+export const TodoItemFragmentDoc = gql`
+    fragment TodoItem on Todo {
+  id
+  title
+  description
+  deadline
+}
+    `;
 export const TagFragmentDoc = gql`
     fragment Tag on Tag {
   id
@@ -112,38 +120,31 @@ export const TagFragmentDoc = gql`
   color
 }
     `;
-export const TodoItemFragmentDoc = gql`
-    fragment TodoItem on Todo {
-  id
-  title
-  description
-  deadline
-  tags {
-    ...Tag
-  }
-}
-    ${TagFragmentDoc}`;
 export const AppointmentItemFragmentDoc = gql`
     fragment AppointmentItem on Appointment {
   id
   title
   datetime
   place
-  tags {
-    ...Tag
-  }
 }
-    ${TagFragmentDoc}`;
+    `;
 export const ScheduleItemFragmentDoc = gql`
     fragment ScheduleItem on ScheduleItem {
   ... on Todo {
     ...TodoItem
+    tags {
+      ...Tag
+    }
   }
   ... on Appointment {
     ...AppointmentItem
+    tags {
+      ...Tag
+    }
   }
 }
     ${TodoItemFragmentDoc}
+${TagFragmentDoc}
 ${AppointmentItemFragmentDoc}`;
 export const AppDocument = gql`
     query App {

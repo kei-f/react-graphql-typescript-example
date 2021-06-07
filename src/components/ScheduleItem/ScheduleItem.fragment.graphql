@@ -1,8 +1,14 @@
 fragment ScheduleItem on ScheduleItem {
   ... on Todo {
     ...TodoItem
+    tags {
+      ...Tag
+    }
   }
   ... on Appointment {
     ...AppointmentItem
+    tags {
+      ...Tag
+    }
   }
 }

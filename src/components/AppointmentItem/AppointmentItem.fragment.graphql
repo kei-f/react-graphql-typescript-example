@@ -3,7 +3,4 @@ fragment AppointmentItem on Appointment {
   title
   datetime
   place
-  tags {
-    ...Tag
-  }
 }
