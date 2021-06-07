@@ -98,7 +98,7 @@ export type TagFragment = (
 
 export type TodoItemFragment = (
   { __typename?: 'Todo' }
-  & Pick<Todo, 'id' | 'title' | 'description'>
+  & Pick<Todo, 'id' | 'title' | 'description' | 'deadline'>
   & { tags: Array<(
     { __typename?: 'Tag' }
     & TagFragment
@@ -117,6 +117,7 @@ export const TodoItemFragmentDoc = gql`
   id
   title
   description
+  deadline
   tags {
     ...Tag
   }

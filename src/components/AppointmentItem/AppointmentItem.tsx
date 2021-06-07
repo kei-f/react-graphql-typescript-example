@@ -10,14 +10,14 @@ const TodoItem = ({ appointment }: Props) => {
 
   return (
     <div>
-      <div>{title}</div>
-      <div>{place}</div>
-      <div>{datetime}</div>
-      <div>
+      <div style={{ textAlign: "right" }}>
         {tags.map((tag) => (
           <Tag key={tag.id} tag={tag} />
         ))}
       </div>
+      <h2 style={{ fontSize: "1.1rem", marginBlock: 4 }}>{title}</h2>
+      <div>Place: {place}</div>
+      <div>Date and time: {new Date(datetime).toLocaleString()}</div>
     </div>
   );
 };

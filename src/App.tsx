@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       {data.schedule.map((item) => (
-        <ScheduleItem item={item} />
+        <ScheduleItem key={item.id} item={item} />
       ))}
     </div>
   );

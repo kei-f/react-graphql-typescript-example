@@ -2,6 +2,7 @@ fragment TodoItem on Todo {
   id
   title
   description
+  deadline
   tags {
     ...Tag
   }

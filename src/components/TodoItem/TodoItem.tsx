@@ -6,17 +6,18 @@ type Props = {
 };
 
 const TodoItem = ({ todo }: Props) => {
-  const { title, description, tags } = todo;
+  const { title, description, deadline, tags } = todo;
 
   return (
     <div>
-      <div>{title}</div>
-      <div>{description}</div>
-      <div>
+      <div style={{ textAlign: "right" }}>
         {tags.map((tag) => (
           <Tag key={tag.id} tag={tag} />
         ))}
       </div>
+      <h2 style={{ fontSize: "1.1rem", marginBlock: 4 }}>{title}</h2>
+      <p>{description}</p>
+      <div>Due date: {new Date(deadline).toLocaleString()}</div>
     </div>
   );
 };
