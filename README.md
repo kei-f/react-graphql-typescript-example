@@ -2,3 +2,7 @@
 
 1. Start server by: `yarn server`
 2. Start client by: `yarn start`
+
+## codegen
+
+`yarn graphql` to execute `graphql-codegen`
